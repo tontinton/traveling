@@ -1,4 +1,4 @@
-const NUMBER_OF_POINTS = 20;
+const NUMBER_OF_POINTS = 50;
 const RADIUS = 10;
 
 let canvas;
