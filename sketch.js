@@ -1,5 +1,6 @@
 const NUMBER_OF_POINTS = 50;
 const RADIUS = 10;
+const NUMBER_OF_GENERATIONS = 10;
 
 let canvas;
 let pop;
@@ -15,18 +16,20 @@ function setup() {
         }
     }
 
-    pop = new Population(100, true);
-    console.log(pop.getFittest().getDistance());
+    pop = new Population(50, true);
 }
 
 window.onresize = function () {
-    PathManager.points =  [];
+    generation = 0;
+    PathManager.points = [];
     setup();
 };
 
 function update() {
-    pop = GA.evolvePopulation(pop);
-    generation++;
+    for (let i = 0; i < NUMBER_OF_GENERATIONS; i++) {
+        pop = GA.evolvePopulation(pop);
+        generation++;
+    }
     fittest = pop.getFittest();
 }
 
